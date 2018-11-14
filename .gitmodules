@@ -1,0 +1,3 @@
+[submodule "simple_svg_parser"]
+	path = simple_svg_parser
+	url = https://github.com/gferreira/simple_svg_parser.git
