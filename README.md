@@ -1,7 +1,7 @@
 importSVG
 =========
 
-built with [simple_svg_parser](https://github.com/evanw/simple_svg_parser)
+uses [simple_svg_parser](https://github.com/evanw/simple_svg_parser)
 
 ### svg2drawbot
 
