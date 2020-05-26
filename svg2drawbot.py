@@ -1,21 +1,12 @@
-import os
-import sys
-
-libFolder = os.path.join(os.getcwd(), 'simple_svg_parser')
-if not libFolder in sys.path:
-    sys.path.insert(0, libFolder)
-
-import simple_svg_parser
-# from importlib import reload
-# reload(simple_svg_parser)
-
 from drawBot import *
+import simple_svg_parser
+
 
 class SVGImage:
 
     def __init__(self, svgPath):
         self.path = svgPath
-        self.handler = SVGHandler()
+        self.handler = SVGHandlerDB()
         self.parse()
 
     def parse(self):
@@ -31,17 +22,17 @@ class SVGImage:
     def height(self):
         return self.handler.height
 
-    def draw(self):
-        self.handler.draw()
-
     def _debug(self):
         print('\n'.join(self.handler._lines))
 
     def _paths(self):
-        return list(zip(svg.handler._paths, svg.handler._properties))
+        return list(zip(self.handler._paths, self.handler._properties))
+
+    def draw(self):
+        self.handler.draw()
 
 
-class SVGHandler:
+class SVGHandlerDB:
 
     paths = []
     properties = []
@@ -101,16 +92,9 @@ class SVGHandler:
                 drawPath(path)
         restore()
 
+
 if __name__ == '__main__':
 
-    folder = os.path.join(os.getcwd(), 'tests2')
-    svgs = sorted([os.path.join(folder, f) for f in os.listdir(folder) if os.path.splitext(f)[-1] == '.svg'])
-
-    for svgPath in svgs:
-
-        svg = SVGImage(svgPath)
-        newPage(svg.width, svg.height)
-        svg.draw()
-
-        # svg._debug()
-        # print(svg._paths())
+    svg = SVGImage('tests2/desert.svg')
+    size(svg.width, svg.height)
+    svg.draw()
