@@ -1,5 +1,20 @@
-# svg2drawbot
+importSVG
+=========
 
-parse SVGs using [simple_svg_parser](https://github.com/evanw/simple_svg_parser) and draw them into DrawBot
+built with [simple_svg_parser](https://github.com/evanw/simple_svg_parser)
 
-_…work in progress…_
+### svg2drawbot
+
+```python
+svg = SVGImage('tests2/desert.svg')
+size(svg.width, svg.height)
+svg.draw()
+```
+
+### svg2robofont
+
+```python
+g = CurrentGlyph()
+g.clear()
+svgPen = SVGPen('tests2/desert.svg', g.getPen())
+```
