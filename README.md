@@ -3,6 +3,8 @@ importSVG
 
 uses [simple_svg_parser](https://github.com/evanw/simple_svg_parser)
 
+<!-- example SVGs from [FlatIcon’s Landscapes collection](https://www.flaticon.com/packs/landscapes-collection) -->
+
 ### svg2drawbot
 
 ```python
